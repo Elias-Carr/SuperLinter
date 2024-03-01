@@ -1,26 +1,34 @@
-name: Super Linter
+#name: Super Linter
+
+## Events
+
+#on:
+  #push:
+    #branches:
+      #- main
+  #pull_request:
+    #branches:
+      #- main
+  #workflow_dispatch:
+
+## Workflow
+name: Lint
 
 # Events
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  #workflow_dispatch:
+on:  # yamllint disable-line rule:truthy
+  push: null
+  pull_request: null
 
 # Workflow
-
 jobs:
   build:
     name: Lint
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
-      packages: write
+      contents: read
+      packages: read
       # To report GitHub Actions status checks
       statuses: write
 
